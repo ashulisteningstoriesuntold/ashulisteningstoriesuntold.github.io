@@ -29,6 +29,8 @@
   --line:rgba(34,26,61,.16);
   --card:#FFFFFF;
   --on-marigold:#221A3D;
+  --band-dark:#221A3D;  /* closing band stays dark in both themes */
+  --band-dark-ink:#F5F3FA;
 
   --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --f-body:"Figtree", "Helvetica Neue", Arial, system-ui, sans-serif;
@@ -42,14 +44,14 @@
   :root:not([data-theme="light"]){
     --paper:#15112A; --paper-2:#1F1938; --ink:#EEE9F8; --ink-soft:#ADA5C6;
     --marigold:#F6B42C; --bloom:#F27D97; --sage:#7FC1A3;
-    --line:rgba(238,233,248,.16); --card:#241D40;
+    --line:rgba(238,233,248,.16); --card:#241D40; --band-dark:#2B2252;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --paper:#15112A; --paper-2:#1F1938; --ink:#EEE9F8; --ink-soft:#ADA5C6;
   --marigold:#F6B42C; --bloom:#F27D97; --sage:#7FC1A3;
-  --line:rgba(238,233,248,.16); --card:#241D40;
+  --line:rgba(238,233,248,.16); --card:#241D40; --band-dark:#2B2252;
   color-scheme:dark;
 }
 
@@ -278,7 +280,7 @@ p{margin:0; max-width:62ch}
 /* ---------- questions ---------- */
 .q-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:16px}
 @media (max-width:980px){ .q-grid{grid-template-columns:repeat(2, 1fr)} }
-@media (max-width:480px){ .q-grid{grid-template-columns:1fr} }
+@media (max-width:480px){ .q-grid{gap:12px} .q{font-size:1.2rem; padding:14px 12px 18px} }
 .q{
   background:var(--card); padding:22px 20px 26px; border-radius:4px;
   box-shadow:0 1px 0 var(--line), 0 10px 24px -14px rgba(20,12,40,.35);
@@ -300,14 +302,14 @@ p{margin:0; max-width:62ch}
 .chips.soft li{border-color:var(--line); background:var(--card)}
 
 /* ---------- final cta ---------- */
-.final{background:var(--ink); color:var(--paper)}
+.final{background:var(--band-dark); color:var(--band-dark-ink)}
 .final-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:clamp(28px, 5vw, 64px); align-items:center}
 @media (max-width:760px){ .final-grid{grid-template-columns:1fr} }
 .final-copy{display:flex; flex-direction:column; align-items:flex-start; gap:22px}
-.final h2{font-size:var(--s4); font-weight:800; letter-spacing:-.035em; max-width:14ch; color:var(--paper)}
-.final p{color:color-mix(in srgb, var(--paper) 78%, transparent); font-size:var(--s1)}
-.final .btn-primary{box-shadow:4px 4px 0 var(--paper)}
-.final .btn-primary:hover{box-shadow:6px 6px 0 var(--paper)}
+.final h2{font-size:var(--s4); font-weight:800; letter-spacing:-.035em; max-width:14ch; color:var(--band-dark-ink)}
+.final p{color:color-mix(in srgb, var(--band-dark-ink) 78%, transparent); font-size:var(--s1)}
+.final .btn-primary{box-shadow:4px 4px 0 var(--band-dark-ink)}
+.final .btn-primary:hover{box-shadow:6px 6px 0 var(--band-dark-ink)}
 .final .hand{color:var(--marigold); font-size:1.8rem}
 .final .email-line{font-size:1rem; overflow-wrap:anywhere}
 .final .email-line a{color:var(--marigold); font-weight:600; text-underline-offset:3px}
@@ -632,7 +634,7 @@ footer .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wr
       </div>
       <div class="chair-wrap inview" aria-hidden="true">
         <div class="blob"></div>
-        <svg viewBox="0 0 400 340" fill="none" stroke="var(--paper)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 400 340" fill="none" stroke="var(--band-dark-ink)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
           <path class="draw-io" pathLength="1" d="M120 200 L118 92 Q120 58 200 56 Q280 58 282 92 L280 200"/>
           <path class="draw-io" pathLength="1" d="M122 196 Q80 196 76 166 Q74 136 104 134 Q122 134 124 158"/>
           <path class="draw-io" pathLength="1" d="M278 196 Q320 196 324 166 Q326 136 296 134 Q278 134 276 158"/>
