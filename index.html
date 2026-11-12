@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ashu · Counselling</title>
+<meta name="description" content="Ashu is a counsellor for students and adults who look like they have it all together. CBT, DBT, art and somatic work, online sessions. Book a free 20-minute vibe check.">
+<meta property="og:title" content="Ashu · Counselling">
+<meta property="og:description" content="Less couch, more doing. Book a free 20-minute vibe check.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ashulisteningstoriesuntold.github.io/">
+<meta property="og:image" content="https://ashulisteningstoriesuntold.github.io/ashu.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="ashu.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@500;700&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: a sketchbook page. Asymmetric hero with a hand-drawn chair, then
+   sections that alternate between plain ink and a tinted "page" band. */
+:root{
+  --paper:#F5F3FA;      /* lilac-tinted page */
+  --paper-2:#EAE4F5;    /* tinted band */
+  --ink:#221A3D;        /* deep plum ink */
+  --ink-soft:#5A5272;
+  --marigold:#F0A202;   /* the one bold colour */
+  --bloom:#D9546F;      /* marker notes */
+  --sage:#4F8F72;
+  --line:rgba(34,26,61,.16);
+  --card:#FFFFFF;
+  --on-marigold:#221A3D;
+
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Figtree", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --f-hand:"Caveat", "Bradley Hand", "Segoe Print", cursive;
+
+  --s-1:.875rem; --s0:1.0625rem; --s1:1.25rem; --s2:1.6rem; --s3:2.2rem; --s4:clamp(2.6rem, 6.4vw, 4.75rem);
+  --radius:14px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#15112A; --paper-2:#1F1938; --ink:#EEE9F8; --ink-soft:#ADA5C6;
+    --marigold:#F6B42C; --bloom:#F27D97; --sage:#7FC1A3;
+    --line:rgba(238,233,248,.16); --card:#241D40;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15112A; --paper-2:#1F1938; --ink:#EEE9F8; --ink-soft:#ADA5C6;
+  --marigold:#F6B42C; --bloom:#F27D97; --sage:#7FC1A3;
+  --line:rgba(238,233,248,.16); --card:#241D40;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--f-body); font-size:var(--s0); line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--marigold); outline-offset:3px; border-radius:6px}
+
+.wrap{
+  max-width:1120px; margin-inline:auto;
+  padding-left:max(20px, env(safe-area-inset-left, 0px));
+  padding-right:max(20px, env(safe-area-inset-right, 0px));
+}
+.band{background:var(--paper-2)}
+section{padding-block:clamp(56px, 9vw, 104px)}
+
+h1,h2,h3{font-family:var(--f-display); line-height:1.05; margin:0; text-wrap:balance; letter-spacing:-.02em}
+h2{font-size:var(--s3); font-weight:700; max-width:22ch}
+h3{font-size:var(--s1); font-weight:650; letter-spacing:-.01em}
+p{margin:0; max-width:62ch}
+.eyebrow{
+  font-family:var(--f-body); font-size:var(--s-1); font-weight:600;
+  text-transform:uppercase; letter-spacing:.12em; color:var(--ink-soft);
+}
+.hand{font-family:var(--f-hand); color:var(--bloom); font-weight:700; line-height:1.1}
+.lede{font-size:var(--s1); color:var(--ink-soft); line-height:1.5}
+.stack{display:flex; flex-direction:column; gap:18px}
+.section-head{display:flex; flex-direction:column; gap:14px; margin-bottom:44px}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--f-display); font-weight:650; font-size:1.05rem;
+  padding:14px 22px; border-radius:999px; text-decoration:none;
+  border:2px solid var(--ink); transition:transform .2s ease, box-shadow .2s ease, background .2s;
+}
+.btn-primary{background:var(--marigold); color:var(--on-marigold); border-color:var(--marigold); box-shadow:4px 4px 0 var(--ink)}
+.btn-primary:hover{transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink)}
+.btn-primary:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink)}
+.btn-ghost{background:transparent; color:var(--ink)}
+.btn-ghost:hover{background:var(--ink); color:var(--paper)}
+.btn .arrow{transition:transform .2s}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* ---------- nav ---------- */
+.nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:22px; flex-wrap:wrap}
+.brand{font-family:var(--f-display); font-weight:800; font-size:1.6rem; text-decoration:none; letter-spacing:-.03em; display:flex; align-items:baseline; gap:8px}
+.brand .dot{width:11px; height:11px; border-radius:50%; background:var(--marigold); display:inline-block}
+.nav ul{display:flex; gap:26px; list-style:none; margin:0; padding:0; flex-wrap:wrap}
+.nav ul a{text-decoration:none; font-weight:500; color:var(--ink-soft)}
+.nav ul a:hover{color:var(--ink)}
+.nav .btn{padding:10px 18px; font-size:.95rem; box-shadow:3px 3px 0 var(--ink)}
+@media (max-width:760px){ .nav ul{display:none} }
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(28px, 6vw, 72px) clamp(56px, 8vw, 96px)}
+.hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(24px, 5vw, 64px); align-items:center}
+@media (max-width:860px){ .hero-grid{grid-template-columns:1fr} }
+.hero h1{font-size:var(--s4); font-weight:800; letter-spacing:-.035em; max-width:13ch}
+.hero h1 .one{position:relative; white-space:nowrap}
+.hero h1 .one svg{position:absolute; left:-4%; bottom:-.12em; width:108%; height:.32em; overflow:visible}
+.hero-copy{display:flex; flex-direction:column; gap:24px}
+.hero-copy .lede{max-width:46ch}
+.hero-copy .lede em{font-style:normal; color:var(--ink); background:linear-gradient(transparent 62%, color-mix(in srgb, var(--marigold) 45%, transparent) 62%)}
+.cta-row{display:flex; gap:14px; flex-wrap:wrap; align-items:center}
+.meta-row{display:flex; gap:10px 22px; flex-wrap:wrap; color:var(--ink-soft); font-size:var(--s-1)}
+.meta-row span{display:inline-flex; align-items:center; gap:8px}
+.meta-row span::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--sage)}
+
+.portrait{position:relative; margin:0; max-width:420px; width:100%; aspect-ratio:1; justify-self:center}
+.portrait .blob{
+  position:absolute; inset:5% -3% -4% 7%; background:var(--marigold);
+  border-radius:46% 54% 42% 58% / 52% 44% 56% 48%; animation:breathe 8s ease-in-out infinite;
+}
+.portrait img{
+  position:relative; display:block; width:100%; height:100%; object-fit:cover; object-position:50% 22%;
+  border:3px solid var(--ink); border-radius:48% 52% 44% 56% / 54% 46% 54% 46%;
+  animation:morph 12s ease-in-out infinite;
+}
+.portrait .sparkles{position:absolute; left:-8%; top:-8%; width:116%; height:116%; pointer-events:none; overflow:visible}
+.portrait .label{
+  position:absolute; left:-4%; bottom:6%; font-size:1.8rem; transform:rotate(-8deg);
+  background:var(--paper); padding:2px 12px; border-radius:10px; border:2px solid var(--ink);
+}
+@keyframes morph{
+  0%,100%{border-radius:48% 52% 44% 56% / 54% 46% 54% 46%}
+  50%{border-radius:56% 44% 52% 48% / 46% 56% 44% 54%}
+}
+.chair-wrap{position:relative; max-width:400px; width:100%; justify-self:center}
+.chair-wrap .blob{
+  position:absolute; inset:8% 6% 14% 8%; border-radius:46% 54% 42% 58% / 52% 44% 56% 48%;
+  background:var(--marigold); opacity:.9; animation:breathe 8s ease-in-out infinite;
+}
+.chair-wrap svg{position:relative; width:100%; height:auto; display:block}
+.chair-wrap .label{position:absolute; right:-2%; top:2%; font-size:1.7rem; transform:rotate(8deg)}
+.draw path, .draw circle, .draw rect, .draw line, path.draw{
+  stroke-dasharray:1; stroke-dashoffset:1;
+}
+.hero .draw path, .hero .draw rect, .hero .draw circle, .hero path.draw{animation:ink 1.6s cubic-bezier(.6,.1,.3,1) forwards}
+.hero .draw > *:nth-child(2){animation-delay:.15s}
+.hero .draw > *:nth-child(3){animation-delay:.3s}
+.hero .draw > *:nth-child(4){animation-delay:.45s}
+.hero .draw > *:nth-child(5){animation-delay:.6s}
+.hero .draw > *:nth-child(6){animation-delay:.75s}
+.hero .draw > *:nth-child(n+7){animation-delay:.9s}
+.hero path.draw{animation-delay:1s; animation-duration:.9s}
+.steam{animation:steam 3s ease-in-out infinite; transform-origin:center bottom}
+@keyframes ink{to{stroke-dashoffset:0}}
+@keyframes breathe{
+  0%,100%{transform:scale(.94) rotate(0deg); border-radius:46% 54% 42% 58% / 52% 44% 56% 48%}
+  50%{transform:scale(1.04) rotate(4deg); border-radius:54% 46% 56% 44% / 44% 56% 46% 54%}
+}
+@keyframes steam{0%,100%{transform:translateY(0); opacity:.85} 50%{transform:translateY(-6px); opacity:.35}}
+.rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.rise.d1{animation-delay:.08s}.rise.d2{animation-delay:.16s}.rise.d3{animation-delay:.24s}.rise.d4{animation-delay:.32s}
+@keyframes rise{from{transform:translateY(14px)} to{transform:none}}
+
+/* ---------- talk vs walk ---------- */
+.versus{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:stretch}
+@media (max-width:760px){ .versus{grid-template-columns:1fr} }
+.vs-card{padding:30px; border-radius:var(--radius); display:flex; flex-direction:column; gap:14px}
+.vs-old{border:2px dashed var(--line)}
+.vs-old h3{position:relative; display:inline-block; color:var(--ink-soft); align-self:flex-start}
+.vs-old h3 svg{position:absolute; left:-6%; top:30%; width:112%; height:60%; overflow:visible}
+.vs-new{background:var(--card); border:2px solid var(--ink); box-shadow:6px 6px 0 var(--marigold)}
+.vs-card p{color:var(--ink-soft)}
+.vs-new ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px}
+.vs-new li{display:flex; gap:12px; align-items:baseline; font-weight:500}
+.vs-new li::before{content:"✓"; font-family:var(--f-hand); font-size:1.5rem; color:var(--sage); line-height:1}
+.inview path.draw-io{stroke-dasharray:1; stroke-dashoffset:1; transition:stroke-dashoffset 1s cubic-bezier(.6,.1,.3,1) .2s}
+.inview.in path.draw-io{stroke-dashoffset:0}
+
+/* ---------- explore ---------- */
+.explore{display:grid; grid-template-columns:repeat(2, 1fr); gap:20px}
+@media (max-width:760px){ .explore{grid-template-columns:1fr} }
+.ex{padding:26px 28px; border-top:2px solid var(--ink); display:flex; flex-direction:column; gap:10px}
+.ex p{color:var(--ink-soft)}
+.ex .hand{font-size:1.45rem}
+
+/* ---------- who / checklist ---------- */
+.who-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(28px, 5vw, 64px); align-items:start}
+@media (max-width:860px){ .who-grid{grid-template-columns:1fr} }
+.checklist{display:flex; flex-direction:column; gap:10px; margin:0; padding:0; list-style:none}
+.check{position:relative}
+.check input{position:absolute; opacity:0; width:1px; height:1px}
+.check label{
+  display:flex; gap:16px; align-items:center; cursor:pointer;
+  padding:16px 18px; border-radius:12px; background:var(--card); border:2px solid var(--line);
+  transition:border-color .2s, transform .2s; font-weight:500;
+}
+.check label:hover{border-color:var(--ink); transform:translateX(4px)}
+.check input:focus-visible + label{outline:3px solid var(--marigold); outline-offset:2px}
+.box{flex:none; width:28px; height:28px; border:2px solid var(--ink); border-radius:7px; position:relative}
+.box svg{position:absolute; inset:-8px -6px -4px -4px; width:calc(100% + 10px); height:calc(100% + 12px); overflow:visible}
+.box path{stroke-dasharray:1; stroke-dashoffset:1; transition:stroke-dashoffset .35s ease}
+.check input:checked + label{border-color:var(--ink)}
+.check input:checked + label .box path{stroke-dashoffset:0}
+.tally{margin-top:18px; min-height:2.2em; font-size:1.7rem}
+.who-copy{display:flex; flex-direction:column; gap:18px}
+.who-copy p{color:var(--ink-soft)}
+.who-copy strong{color:var(--ink); font-weight:600}
+.worlds{display:flex; align-items:center; gap:14px; margin-top:8px}
+.worlds svg{width:120px; height:64px; flex:none}
+.worlds p{font-size:var(--s-1)}
+
+/* ---------- toolbox ---------- */
+.tools{display:grid; grid-template-columns:repeat(4, 1fr); gap:18px}
+@media (max-width:980px){ .tools{grid-template-columns:repeat(2, 1fr)} }
+@media (max-width:520px){ .tools{grid-template-columns:1fr} }
+.tool{
+  background:var(--card); border:2px solid var(--ink); border-radius:var(--radius);
+  padding:24px; display:flex; flex-direction:column; gap:12px; transition:transform .25s ease, box-shadow .25s ease;
+}
+.tool:hover{transform:translateY(-6px) rotate(-.6deg); box-shadow:0 14px 0 -4px var(--marigold)}
+.tool svg{width:64px; height:64px}
+.tool .tag{font-family:var(--f-display); font-weight:800; font-size:2rem; letter-spacing:-.03em; line-height:1}
+.tool p{color:var(--ink-soft); font-size:.98rem}
+.tool:hover .wiggle{animation:wiggle .5s ease-in-out 2}
+.tool:hover .wave{animation:wave 1.2s ease-in-out infinite}
+.tool:hover .bubble{animation:pop .6s ease}
+.tool:hover .crayon{animation:scribble .7s ease-in-out 2}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+@keyframes wave{0%,100%{transform:translateX(0)}50%{transform:translateX(-6px)}}
+@keyframes pop{50%{transform:scale(1.12)}}
+@keyframes scribble{50%{transform:translate(-6px,4px) rotate(-6deg)}}
+.wiggle,.wave,.bubble,.crayon{transform-box:fill-box; transform-origin:center}
+.sessions{margin-top:40px; display:flex; flex-wrap:wrap; gap:10px 28px; align-items:baseline; font-family:var(--f-display); font-size:var(--s2); font-weight:650; letter-spacing:-.02em}
+.sessions .hand{font-size:2.2rem}
+
+/* ---------- breathe ---------- */
+.breathe{display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px, 5vw, 64px); align-items:center}
+@media (max-width:760px){ .breathe{grid-template-columns:1fr} }
+.breath-stage{position:relative; aspect-ratio:1; max-width:360px; width:100%; justify-self:center; display:grid; place-items:center}
+.breath-ring{position:absolute; inset:0; border:2px dashed var(--line); border-radius:50%}
+.breath-blob{
+  width:46%; aspect-ratio:1; border-radius:50%; background:color-mix(in srgb, var(--sage) 40%, var(--paper));
+  transform:scale(1); transition:transform 4s ease-in-out, background .6s;
+}
+.breath-stage[data-phase="in"] .breath-blob{transform:scale(2.05); transition-duration:4s}
+.breath-stage[data-phase="hold"] .breath-blob{transform:scale(2.05); background:color-mix(in srgb, var(--marigold) 50%, var(--paper))}
+.breath-stage[data-phase="out"] .breath-blob{transform:scale(1); transition-duration:6s}
+.breath-text{position:absolute; text-align:center; font-family:var(--f-display); font-weight:700; font-size:1.4rem; color:var(--ink); pointer-events:none; display:flex; flex-direction:column; gap:2px}
+.breath-text small{font-family:var(--f-body); font-weight:500; font-size:.9rem; color:var(--ink-soft); font-variant-numeric:tabular-nums}
+.breathe .stack p{color:var(--ink-soft)}
+
+/* ---------- steps ---------- */
+.steps{display:grid; grid-template-columns:repeat(3, 1fr); gap:0; counter-reset:step; border-top:2px solid var(--ink)}
+@media (max-width:860px){ .steps{grid-template-columns:repeat(2, 1fr)} }
+@media (max-width:560px){ .steps{grid-template-columns:1fr} }
+.step{padding:28px 24px 32px 0; display:flex; flex-direction:column; gap:10px; border-bottom:1px solid var(--line)}
+.step .n{font-family:var(--f-display); font-weight:800; font-size:3rem; line-height:1; color:var(--marigold); -webkit-text-stroke:1.5px var(--ink); paint-order:stroke fill}
+.step p{color:var(--ink-soft); font-size:.98rem}
+.step .hand{font-size:1.35rem}
+
+/* ---------- questions ---------- */
+.q-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:16px}
+@media (max-width:980px){ .q-grid{grid-template-columns:repeat(2, 1fr)} }
+@media (max-width:480px){ .q-grid{grid-template-columns:1fr} }
+.q{
+  background:var(--card); padding:22px 20px 26px; border-radius:4px;
+  box-shadow:0 1px 0 var(--line), 0 10px 24px -14px rgba(20,12,40,.35);
+  font-family:var(--f-hand); font-size:1.55rem; line-height:1.15; color:var(--ink);
+  transform:rotate(var(--r, 0deg)); transition:transform .25s ease;
+  border-top:10px solid color-mix(in srgb, var(--marigold) 55%, transparent);
+}
+.q:nth-child(4n+2){--r:1.2deg; border-top-color:color-mix(in srgb, var(--bloom) 45%, transparent)}
+.q:nth-child(4n+3){--r:-1.4deg; border-top-color:color-mix(in srgb, var(--sage) 50%, transparent)}
+.q:nth-child(4n+1){--r:-.8deg}
+.q:nth-child(4n){--r:1.6deg; border-top-color:color-mix(in srgb, var(--ink-soft) 35%, transparent)}
+.q:hover{transform:rotate(0deg) scale(1.03)}
+
+/* ---------- areas ---------- */
+.areas{display:grid; grid-template-columns:1fr 1fr; gap:40px}
+@media (max-width:760px){ .areas{grid-template-columns:1fr} }
+.chips{display:flex; flex-wrap:wrap; gap:10px; margin:0; padding:0; list-style:none}
+.chips li{padding:8px 14px; border-radius:999px; border:1.5px solid var(--ink); font-weight:500; font-size:.95rem}
+.chips.soft li{border-color:var(--line); background:var(--card)}
+
+/* ---------- final cta ---------- */
+.final{background:var(--ink); color:var(--paper)}
+.final-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:clamp(28px, 5vw, 64px); align-items:center}
+@media (max-width:760px){ .final-grid{grid-template-columns:1fr} }
+.final-copy{display:flex; flex-direction:column; align-items:flex-start; gap:22px}
+.final h2{font-size:var(--s4); font-weight:800; letter-spacing:-.035em; max-width:14ch; color:var(--paper)}
+.final p{color:color-mix(in srgb, var(--paper) 78%, transparent); font-size:var(--s1)}
+.final .btn-primary{box-shadow:4px 4px 0 var(--paper)}
+.final .btn-primary:hover{box-shadow:6px 6px 0 var(--paper)}
+.final .hand{color:var(--marigold); font-size:1.8rem}
+.final .email-line{font-size:1rem; overflow-wrap:anywhere}
+.final .email-line a{color:var(--marigold); font-weight:600; text-underline-offset:3px}
+.final .chair-wrap .label{top:auto; right:auto; left:8%; bottom:-4%; transform:rotate(-4deg)}
+footer{padding-block:28px; color:var(--ink-soft); font-size:var(--s-1)}
+footer .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important; transition:none !important; scroll-behavior:auto !important}
+  .draw path, .draw circle, .draw rect, path.draw, .inview path.draw-io{stroke-dashoffset:0 !important}
+}
+</style>
+</head>
+<body>
+
+<header class="wrap nav">
+  <a class="brand" href="#top" aria-label="Ashu, home">Ashu<span class="dot" aria-hidden="true"></span></a>
+  <nav aria-label="Sections">
+    <ul>
+      <li><a href="#how">How I work</a></li>
+      <li><a href="#who">Who I work with</a></li>
+      <li><a href="#toolbox">Toolbox</a></li>
+      <li><a href="#start">Getting started</a></li>
+    </ul>
+  </nav>
+  <a class="btn btn-primary" href="https://topmate.io/listeningstoriesuntold" target="_blank" rel="noopener">Book a vibe check</a>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow rise">Counsellor · Online sessions</span>
+        <div class="rise d1">
+          <h1>Hi, I'm Ashu. Yes, <span class="one">just one name.<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path class="draw" pathLength="1" d="M4 14 C 60 4, 140 2, 296 10" fill="none" stroke="var(--marigold)" stroke-width="6" stroke-linecap="round"/></svg></span></h1>        </div>
+        <p class="lede rise d2">Think less "lie on a couch and talk about your childhood" and more <em>"let's figure this out and actually do something about it."</em> This is your safe space, and you'll leave with tools, not just insight.</p>
+        <div class="cta-row rise d3">
+          <a class="btn btn-primary" href="https://topmate.io/listeningstoriesuntold" target="_blank" rel="noopener">Book your free 20-min vibe check <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#questions">Questions to ask me</a>
+        </div>
+        <div class="meta-row rise d4">
+          <span>30 or 60 minute sessions</span>
+          <span>Weekly or fortnightly</span>
+          <span>Students &amp; adults</span>
+        </div>
+      </div>
+
+      <figure class="portrait">
+        <div class="blob" aria-hidden="true"></div>
+        <img src="ashu.jpg" alt="Ashu smiling, wearing glasses and a black blazer" width="854" height="854">
+        <svg class="draw sparkles" viewBox="0 0 400 400" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path pathLength="1" d="M352 22 L352 66 M330 44 L374 44 M336 28 L368 60 M368 28 L336 60" stroke="var(--bloom)" stroke-width="4"/>
+          <path pathLength="1" d="M22 140 Q14 78 70 36" stroke="var(--ink)" stroke-width="4"/>
+          <path pathLength="1" d="M44 150 Q40 104 84 66" stroke="var(--ink)" stroke-width="4"/>
+          <path pathLength="1" d="M286 386 q15 -20 30 0 t30 0 t30 0" stroke="var(--sage)" stroke-width="5"/>
+        </svg>
+        <figcaption class="hand label">hi, that's me!</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- HOW I WORK -->
+  <section id="how" class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What it's like to work with me</span>
+        <h2>Awareness is great. Doing something with it is better.</h2>
+      </div>
+      <div class="versus inview">
+        <div class="vs-card vs-old">
+          <h3>All talk, no walk
+            <svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path class="draw-io" pathLength="1" d="M2 12 C 40 2, 70 18, 110 8 S 170 4, 198 10" fill="none" stroke="var(--bloom)" stroke-width="4" stroke-linecap="round"/></svg>
+          </h3>
+          <p>Something I hated in my own journey was being left marinating in the awareness of <em>why</em> I am the way I am, with nothing to actually <em>do</em> about it.</p>
+        </div>
+        <div class="vs-card vs-new">
+          <h3>So we do things differently here</h3>
+          <ul>
+            <li>We try things</li>
+            <li>We practise things</li>
+            <li>We build a plan you can actually use</li>
+          </ul>
+          <p>Share anything on your mind. I'm not going to leave you floating in your trauma without any tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORE -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What we can explore together</span>
+        <h2>You don't need a label, and you don't need it all figured out.</h2>
+        <p class="lede">We do that part together.</p>
+      </div>
+      <div class="explore">
+        <div class="ex">
+          <h3>The patterns you keep repeating</h3>
+          <p>Especially if you feel you're being a bit too much like your mom.</p>
+          <span class="hand">🙃 it happens to the best of us</span>
+        </div>
+        <div class="ex">
+          <h3>The fucked up family stuff</h3>
+          <p>The kind where you just need someone to understand, not someone telling you to set boundaries.</p>
+          <span class="hand">wow, surprise! your therapist can cuss.</span>
+        </div>
+        <div class="ex">
+          <h3>Journaling and shadow work</h3>
+          <p>You know, those parts of yourself you've been hiding in the basement.</p>
+        </div>
+        <div class="ex">
+          <h3>Past trauma, when you're ready</h3>
+          <p>If it's part of your story, we'll go there when you're ready, and not a minute before.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section id="who" class="band">
+    <div class="wrap who-grid">
+      <div class="who-copy">
+        <span class="eyebrow">Who I work with</span>
+        <h2>Sound familiar?</h2>
+        <p>I split my week between <strong>schools</strong>, where I work with students, and <strong>adults who look like they have it all together</strong>. You know the type. Maybe you are the type.</p>
+        <p>I especially love working with people from <strong>culturally diverse backgrounds</strong>, first- and second-generation immigrants, and anyone caught between two (or more) worlds.</p>
+        <div class="worlds" aria-hidden="true">
+          <svg viewBox="0 0 120 64" fill="none" stroke-width="3">
+            <circle cx="42" cy="32" r="26" stroke="var(--ink)"/>
+            <circle cx="78" cy="32" r="26" stroke="var(--bloom)"/>
+            <path d="M60 14 Q70 32 60 50 Q50 32 60 14Z" fill="var(--marigold)" stroke="none"/>
+          </svg>
+          <p class="hand" style="font-size:1.4rem">the bit in the middle is where we work</p>
+        </div>
+      </div>
+      <div>
+        <ul class="checklist" id="familiar">
+          <li class="check"><input type="checkbox" id="c1"><label for="c1"><span class="box"><svg viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" d="M6 22 L16 32 L36 4" fill="none" stroke="var(--bloom)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Always saying yes when I mean no</label></li>
+          <li class="check"><input type="checkbox" id="c2"><label for="c2"><span class="box"><svg viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" d="M6 22 L16 32 L36 4" fill="none" stroke="var(--bloom)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Looking after everyone else</label></li>
+          <li class="check"><input type="checkbox" id="c3"><label for="c3"><span class="box"><svg viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" d="M6 22 L16 32 L36 4" fill="none" stroke="var(--bloom)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Quietly running on empty</label></li>
+          <li class="check"><input type="checkbox" id="c4"><label for="c4"><span class="box"><svg viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" d="M6 22 L16 32 L36 4" fill="none" stroke="var(--bloom)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Life threw my five-year plan out the window</label></li>
+          <li class="check"><input type="checkbox" id="c5"><label for="c5"><span class="box"><svg viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" d="M6 22 L16 32 L36 4" fill="none" stroke="var(--bloom)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Caught between two (or more) worlds</label></li>
+          <li class="check"><input type="checkbox" id="c6"><label for="c6"><span class="box"><svg viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" d="M6 22 L16 32 L36 4" fill="none" stroke="var(--bloom)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A student juggling more than anyone can see</label></li>
+        </ul>
+        <p class="hand tally" id="tally" aria-live="polite">tick whatever feels true</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLBOX -->
+  <section id="toolbox">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">My approach</span>
+        <h2>Eclectic, which is a fancy way of saying no one-size worksheet.</h2>
+        <p class="lede">I mix and match based on what you need, and I always start with your strengths. I'm here to be your biggest cheerleader, because we could all use one.</p>
+      </div>
+      <div class="tools">
+        <article class="tool">
+          <svg viewBox="0 0 64 64" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path class="bubble" d="M18 40 q-11 0 -11 -10 q0 -9 10 -9 q2 -11 14 -11 q10 0 13 8 q12 -1 13 10 q0 12 -12 12 Z" fill="color-mix(in srgb, var(--marigold) 35%, transparent)"/>
+            <circle cx="20" cy="50" r="3"/><circle cx="13" cy="57" r="2"/>
+          </svg>
+          <span class="tag">CBT</span>
+          <h3>Cognitive Behavioural Therapy</h3>
+          <p>Spotting the thoughts that keep you stuck and learning to shift them.</p>
+        </article>
+        <article class="tool">
+          <svg viewBox="0 0 64 64" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+            <path class="wave" d="M2 24 q8 -12 16 0 t16 0 t16 0 t16 0" stroke="var(--bloom)"/>
+            <path class="wave" d="M2 40 q8 -6 16 0 t16 0 t16 0 t16 0"/>
+            <path d="M2 54 L62 54" opacity=".5"/>
+          </svg>
+          <span class="tag">DBT</span>
+          <h3>Dialectical Behaviour Therapy</h3>
+          <p>Practical tools for big emotions, stress and relationships.</p>
+        </article>
+        <article class="tool">
+          <svg viewBox="0 0 64 64" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 48 c8 -20 14 20 22 0 s14 -20 22 0" stroke="var(--sage)"/>
+            <path class="crayon" d="M40 8 l14 14 l-20 20 l-13 1 l1 -13 z" fill="color-mix(in srgb, var(--marigold) 45%, transparent)"/>
+          </svg>
+          <span class="tag">Art</span>
+          <h3>Art therapy</h3>
+          <p>Drawing and creating when words aren't enough.</p>
+        </article>
+        <article class="tool">
+          <svg viewBox="0 0 64 64" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+            <g class="wiggle">
+              <circle cx="32" cy="13" r="6"/>
+              <path d="M32 19 L32 40 M32 26 L20 34 M32 26 L44 34 M32 40 L24 55 M32 40 L40 55"/>
+            </g>
+            <path d="M12 20 l-5 -3 M11 29 l-6 0 M52 20 l5 -3 M53 29 l6 0" stroke="var(--bloom)"/>
+          </svg>
+          <span class="tag">Somatic</span>
+          <h3>Somatic work</h3>
+          <p>Using body movement to shake off stress and regulate.</p>
+        </article>
+      </div>
+      <div class="sessions">
+        <span>Some sessions we're drawing.</span>
+        <span>Some we're making a plan.</span>
+        <span>Sometimes it's a full cry sesh.</span>
+        <span class="hand">all of it counts.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BREATHE -->
+  <section class="band">
+    <div class="wrap breathe">
+      <div class="stack">
+        <span class="eyebrow">A tool to take with you</span>
+        <h2>Try one now: breathe with the circle.</h2>
+        <p>A longer out-breath than in-breath tells your body it's safe to slow down. In for 4, hold for 2, out for 6. Do a few rounds whenever your chest feels tight.</p>
+        <p>This is the kind of thing we practise in sessions, then you keep using between them.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" id="breathBtn" type="button">Start breathing</button>
+        </div>
+      </div>
+      <div class="breath-stage" id="breathStage" data-phase="idle">
+        <div class="breath-ring" aria-hidden="true"></div>
+        <div class="breath-blob" aria-hidden="true"></div>
+        <div class="breath-text" aria-live="polite"><span id="breathWord">Ready when you are</span><small id="breathCount">press start</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section id="start">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How to start</span>
+        <h2>From vibe check to doing the work.</h2>
+      </div>
+      <ol class="steps" style="list-style:none; margin:0; padding:0">
+        <li class="step">
+          <span class="n">1</span>
+          <h3>Free 20-minute discovery call</h3>
+          <p>I absolutely believe in therapist shopping. Investing your time, energy and money in one person only to realise they're not the right fit is fucking draining. So we do a vibe check first.</p>
+        </li>
+        <li class="step">
+          <span class="n">2</span>
+          <h3>You ask me anything</h3>
+          <p>Come with your questions. Not sure what to ask? <a href="#questions">Use mine.</a></p>
+        </li>
+        <li class="step">
+          <span class="n">3</span>
+          <h3>If it feels right, we start</h3>
+          <p>Online sessions, 30 or 60 minutes, whichever suits you. We'll sort out the rhythm on the call, weekly or fortnightly.</p>
+        </li>
+        <li class="step">
+          <span class="n">4</span>
+          <h3>First session: getting to know each other</h3>
+          <p>How this works, confidentiality, what's brought you here and what you'd like to get out of it.</p>
+          <span class="hand">you don't have to tell me everything on day one</span>
+        </li>
+        <li class="step">
+          <span class="n">5</span>
+          <h3>We do the work</h3>
+          <p>Patterns, family stuff, shadow work, past trauma if and when you're ready, plus tools and things to practise between sessions.</p>
+        </li>
+        <li class="step">
+          <span class="n">6</span>
+          <h3>We check in along the way</h3>
+          <p>Every few sessions we look at what's working and what isn't. Change pace, shift focus, take a break or wrap up. You're never locked in.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section id="questions" class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">For your discovery call</span>
+        <h2>Not sure what to ask? Steal these.</h2>
+        <p class="hand" style="font-size:1.6rem">(yes, I'll prepare my answers beforehand 😆💁‍♀️)</p>
+      </div>
+      <div class="q-grid">
+        <div class="q">What does a session with you actually look like?</div>
+        <div class="q">Have you worked with people dealing with what I'm dealing with?</div>
+        <div class="q">How do you work with family and cultural expectations?</div>
+        <div class="q">Will I get tools and things to try, or is it mostly talking?</div>
+        <div class="q">How will we know if it's working?</div>
+        <div class="q">What happens if we're not clicking?</div>
+        <div class="q">How often do you suggest we meet, and for how long?</div>
+        <div class="q">What are your qualifications, and who are you registered with?</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section>
+    <div class="wrap areas">
+      <div class="stack">
+        <span class="eyebrow">Areas I can help with</span>
+        <ul class="chips">
+          <li>Anxiety</li><li>Depression</li><li>Stress</li><li>Low self-esteem</li><li>Life transitions</li><li>Family relationships</li><li>Patterns and people-pleasing</li><li>Past trauma</li><li>Cultural identity and belonging</li><li>School and student counselling</li>
+        </ul>
+      </div>
+      <div class="stack">
+        <span class="eyebrow">Therapeutic approaches</span>
+        <ul class="chips soft">
+          <li>Cognitive Behavioural Therapy</li><li>Dialectical Behaviour Therapy</li><li>Person-centred counselling</li><li>Solution-focused therapy</li><li>Narrative therapy</li><li>Art therapy</li><li>Play therapy</li><li>Somatic Experiencing</li><li>Shadow work</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <div class="wrap final-grid">
+      <div class="final-copy">
+        <span class="hand">ready?</span>
+        <h2>Let's see if we click.</h2>
+        <p>Book your free 20-minute vibe check. No pressure, no sales pitch.</p>
+        <a class="btn btn-primary" href="https://topmate.io/listeningstoriesuntold" target="_blank" rel="noopener">Book on Topmate <span class="arrow" aria-hidden="true">→</span></a>
+        <p class="email-line">Rather write first? Email me at <a href="mailto:Ashu@listeningstoriesuntold.com">Ashu@listeningstoriesuntold.com</a></p>
+      </div>
+      <div class="chair-wrap inview" aria-hidden="true">
+        <div class="blob"></div>
+        <svg viewBox="0 0 400 340" fill="none" stroke="var(--paper)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+          <path class="draw-io" pathLength="1" d="M120 200 L118 92 Q120 58 200 56 Q280 58 282 92 L280 200"/>
+          <path class="draw-io" pathLength="1" d="M122 196 Q80 196 76 166 Q74 136 104 134 Q122 134 124 158"/>
+          <path class="draw-io" pathLength="1" d="M278 196 Q320 196 324 166 Q326 136 296 134 Q278 134 276 158"/>
+          <path class="draw-io" pathLength="1" d="M92 198 Q200 182 308 198 L302 244 Q200 258 98 244 Z"/>
+          <path class="draw-io" pathLength="1" d="M112 248 L104 298 M288 248 L296 298 M160 254 L157 284 M240 254 L243 284"/>
+          <path class="draw-io" pathLength="1" d="M150 110 Q200 96 250 110 M150 140 Q200 126 250 140" stroke-width="3" opacity=".55"/>
+          <path class="draw-io" pathLength="1" d="M334 246 L388 246 M342 246 L338 298 M380 246 L384 298"/>
+          <path class="draw-io" pathLength="1" d="M346 244 L346 218 L370 218 L370 244 M370 224 Q382 226 370 238"/>
+          <path class="draw-io steam" pathLength="1" d="M356 208 q-7 -10 0 -18 q7 -8 0 -16" stroke-width="3"/>
+        </svg>
+        <span class="hand label">your seat's ready</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Ashu · Counselling</span>
+    <span>Email: <a href="mailto:Ashu@listeningstoriesuntold.com">Ashu@listeningstoriesuntold.com</a></span>
+    <span>Booking: <a href="https://topmate.io/listeningstoriesuntold" target="_blank" rel="noopener">topmate.io/listeningstoriesuntold</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Draw the scribble doodles when their section scrolls into view
+  var targets = document.querySelectorAll('.inview');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold: .35});
+    targets.forEach(function(t){ io.observe(t); });
+  } else {
+    targets.forEach(function(t){ t.classList.add('in'); });
+  }
+
+  // "Sound familiar?" checklist
+  var boxes = document.querySelectorAll('#familiar input');
+  var tally = document.getElementById('tally');
+  var lines = [
+    'tick whatever feels true',
+    'one is plenty. you’re in the right place.',
+    'two? hi. pull up a chair.',
+    'okay, we should definitely talk.',
+    'you’ve been carrying a lot.',
+    'that’s a whole lot of holding it together.',
+    'hi. pull up a chair. i mean it.'
+  ];
+  boxes.forEach(function(b){
+    b.addEventListener('change', function(){
+      var n = 0; boxes.forEach(function(x){ if (x.checked) n++; });
+      tally.textContent = lines[n];
+    });
+  });
+
+  // Breathing: in 4, hold 2, out 6
+  var stage = document.getElementById('breathStage');
+  var btn = document.getElementById('breathBtn');
+  var word = document.getElementById('breathWord');
+  var count = document.getElementById('breathCount');
+  var phases = [['in','Breathe in',4],['hold','Hold',2],['out','Breathe out',6]];
+  var timer = null, idx = 0, left = 0, rounds = 0;
+
+  function enter(i){
+    idx = i; left = phases[i][2];
+    stage.dataset.phase = phases[i][0];
+    word.textContent = phases[i][1];
+    count.textContent = left + (rounds ? ' · round ' + (rounds + 1) : '');
+  }
+  function tick(){
+    left--;
+    if (left <= 0) {
+      if (idx === 2) rounds++;
+      enter((idx + 1) % 3);
+    } else {
+      count.textContent = left + (rounds ? ' · round ' + (rounds + 1) : '');
+    }
+  }
+  function stop(){
+    clearInterval(timer); timer = null;
+    stage.dataset.phase = 'idle';
+    word.textContent = rounds ? 'Nice. How do you feel?' : 'Ready when you are';
+    count.textContent = rounds ? rounds + (rounds === 1 ? ' round' : ' rounds') + ' done' : 'press start';
+    btn.textContent = 'Start breathing';
+  }
+  btn.addEventListener('click', function(){
+    if (timer) { stop(); return; }
+    rounds = 0; enter(0);
+    timer = setInterval(tick, 1000);
+    btn.textContent = 'Stop';
+  });
+})();
+</script>
+</body>
+</html>
