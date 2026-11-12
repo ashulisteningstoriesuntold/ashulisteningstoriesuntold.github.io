@@ -111,7 +111,7 @@ p{margin:0; max-width:62ch}
 @media (max-width:760px){ .nav ul{display:none} }
 
 /* ---------- hero ---------- */
-.hero{padding-block:clamp(28px, 6vw, 72px) clamp(56px, 8vw, 96px)}
+.hero{padding-block:clamp(28px, 6vw, 72px) clamp(56px, 8vw, 96px); overflow-x:clip}
 .hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(24px, 5vw, 64px); align-items:center}
 @media (max-width:860px){ .hero-grid{grid-template-columns:1fr} }
 .hero h1{font-size:var(--s4); font-weight:800; letter-spacing:-.035em; max-width:13ch}
@@ -139,6 +139,11 @@ p{margin:0; max-width:62ch}
 .portrait .label{
   position:absolute; left:-4%; bottom:6%; font-size:1.8rem; transform:rotate(-8deg);
   background:var(--paper); padding:2px 12px; border-radius:10px; border:2px solid var(--ink);
+}
+@media (max-width:860px){
+  .portrait{order:-1; max-width:220px; justify-self:start; margin:8px 0 4px 6px}
+  .portrait .label{font-size:1.45rem; left:auto; right:-38%; bottom:10%; transform:rotate(-6deg)}
+  .final .chair-wrap{max-width:280px}
 }
 @keyframes morph{
   0%,100%{border-radius:48% 52% 44% 56% / 54% 46% 54% 46%}
