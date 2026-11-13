@@ -287,7 +287,7 @@ p{margin:0; max-width:62ch}
 /* ---------- breathe ---------- */
 .breathe{display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px, 5vw, 64px); align-items:center}
 @media (max-width:760px){ .breathe{grid-template-columns:1fr} }
-.breath-stage{position:relative; aspect-ratio:1; max-width:360px; width:100%; justify-self:center; display:grid; place-items:center}
+.breath-stage{scroll-margin-bottom:24px; position:relative; aspect-ratio:1; max-width:360px; width:100%; justify-self:center; display:grid; place-items:center}
 .breath-ring{position:absolute; inset:0; border:2px dashed var(--line); border-radius:50%}
 .breath-blob{
   width:46%; aspect-ratio:1; border-radius:50%; background:color-mix(in srgb, var(--sage) 40%, var(--paper));
@@ -416,7 +416,7 @@ footer .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wr
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow rise">Counsellor · Melbourne · Online sessions</span>
+        <span class="eyebrow rise">Counsellor · Melbourne · Online</span>
         <div class="rise d1">
           <h1>Hi, I'm Ashu. Yes, <span class="one">just one name.<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path class="draw" pathLength="1" d="M4 14 C 60 4, 140 2, 296 10" fill="none" stroke="var(--marigold)" stroke-width="6" stroke-linecap="round"/></svg></span></h1>        </div>
         <p class="lede rise d2">Think less "lie on a couch and talk about your childhood" and more <em>"let's figure this out and actually do something about it."</em> This is your safe space, and you'll leave with tools, not just insight.</p>
@@ -853,6 +853,12 @@ footer .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wr
   }
   btn.addEventListener('click', function(){
     if (timer) { stop(); return; }
+    // On phones the circle sits below the button; bring it on screen so you can follow it
+    var r = stage.getBoundingClientRect();
+    if (r.bottom > window.innerHeight || r.top < 0) {
+      var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      stage.scrollIntoView({behavior: calm ? 'auto' : 'smooth', block: 'end'});
+    }
     rounds = 0; enter(0);
     timer = setInterval(tick, 1000);
     btn.textContent = 'Stop';
