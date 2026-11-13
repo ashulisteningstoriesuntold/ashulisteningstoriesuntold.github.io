@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ashu · Mental Health Counsellor</title>
-<meta name="description" content="Ashu is a counsellor for students and adults who look like they have it all together. CBT, DBT, art and somatic work, online sessions. Book a free 20-minute vibe check.">
+<meta name="description" content="Ashu is a Melbourne-based counsellor (Master of Counselling, Monash University) for students and adults who look like they have it all together. CBT, DBT, art and somatic work, online sessions. Book a free 20-minute vibe check.">
 <link rel="canonical" href="https://ashulisteningstoriesuntold.github.io/">
 <meta property="og:title" content="Ashu · Mental Health Counsellor">
 <meta property="og:description" content="Less couch, more doing. Book a free 20-minute vibe check.">
@@ -25,9 +25,22 @@
   "email": "Ashu@listeningstoriesuntold.com",
   "description": "Online counselling for students and adults: anxiety, depression, stress, family relationships, people-pleasing, past trauma, and cultural identity. CBT, DBT, art and somatic work. Free 20-minute discovery call.",
   "areaServed": "Online",
-  "serviceType": ["Counselling", "Cognitive Behavioural Therapy", "Dialectical Behaviour Therapy", "Art therapy", "Somatic Experiencing"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Melbourne", "addressRegion": "VIC", "addressCountry": "AU" },
+  "serviceType": ["Counselling", "School counselling", "Cognitive Behavioural Therapy", "Dialectical Behaviour Therapy", "Art therapy", "Play therapy", "Somatic Experiencing"],
   "sameAs": ["https://topmate.io/listeningstoriesuntold"],
-  "founder": { "@type": "Person", "name": "Ashu", "jobTitle": "Mental Health Counsellor" }
+  "founder": {
+    "@type": "Person",
+    "name": "Ashu",
+    "jobTitle": "Mental Health Counsellor",
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Monash University" },
+      { "@type": "CollegeOrUniversity", "name": "Bennett University" }
+    ],
+    "hasCredential": [
+      { "@type": "EducationalOccupationalCredential", "name": "Master of Counselling", "credentialCategory": "degree" },
+      { "@type": "EducationalOccupationalCredential", "name": "Mental Health First Aid", "credentialCategory": "certificate" }
+    ]
+  }
 }
 </script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -322,6 +335,44 @@ p{margin:0; max-width:62ch}
 .chips li{padding:8px 14px; border-radius:999px; border:1.5px solid var(--ink); font-weight:500; font-size:.95rem}
 .chips.soft li{border-color:var(--line); background:var(--card)}
 
+/* ---------- hero credentials line ---------- */
+.creds-line{display:flex; flex-wrap:wrap; gap:6px 18px; padding-top:18px; border-top:2px dashed var(--line); font-size:var(--s-1); color:var(--ink-soft); max-width:none}
+.creds-line b{color:var(--ink); font-weight:600}
+.creds-line a{color:var(--ink); font-weight:600; text-underline-offset:3px}
+
+/* ---------- about ---------- */
+.about-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px, 5vw, 72px); align-items:start}
+@media (max-width:860px){ .about-grid{grid-template-columns:1fr} }
+.about-copy{display:flex; flex-direction:column; gap:18px}
+.about-copy p{color:var(--ink-soft)}
+.about-copy strong{color:var(--ink); font-weight:600}
+.creds{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:10px}
+@media (max-width:480px){ .creds{grid-template-columns:1fr} }
+.cred{background:var(--card); border:2px solid var(--ink); border-radius:var(--radius); padding:16px 18px; display:flex; flex-direction:column; gap:4px}
+.cred:first-child{box-shadow:5px 5px 0 var(--marigold)}
+.cred b{font-family:var(--f-display); font-weight:700; font-size:1.08rem; letter-spacing:-.01em; line-height:1.2}
+.cred span{color:var(--ink-soft); font-size:.93rem; line-height:1.4}
+.about-copy .about-aside{color:var(--bloom); font-size:1.5rem; transform:rotate(-2deg); margin-top:6px}
+.timeline{list-style:none; margin:0; padding:0 0 0 4px}
+.timeline li{position:relative; padding:0 0 30px 34px; border-left:2px solid var(--ink)}
+.timeline li:last-child{border-left-color:transparent; padding-bottom:0}
+.timeline li::before{
+  content:""; position:absolute; left:-10px; top:.2em; width:18px; height:18px; border-radius:50%;
+  background:var(--marigold); border:2px solid var(--ink);
+}
+.timeline li:nth-child(2)::before{background:var(--bloom)}
+.timeline li:nth-child(3)::before{background:var(--sage)}
+.timeline li:nth-child(4)::before{background:var(--card)}
+.timeline .when{display:block; font-size:var(--s-1); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:6px}
+.timeline h3{margin-bottom:8px}
+.timeline p{color:var(--ink-soft); font-size:.98rem}
+
+/* ---------- crisis note ---------- */
+.crisis{padding-block:22px; border-bottom:1px solid var(--line); font-size:var(--s-1); color:var(--ink-soft)}
+.crisis p{max-width:none}
+.crisis strong{color:var(--ink)}
+.crisis a{color:var(--ink); font-weight:600; white-space:nowrap; text-underline-offset:3px}
+
 /* ---------- final cta ---------- */
 .final{background:var(--band-dark); color:var(--band-dark-ink)}
 .final-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:clamp(28px, 5vw, 64px); align-items:center}
@@ -354,6 +405,7 @@ footer .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wr
       <li><a href="#who">Who I work with</a></li>
       <li><a href="#toolbox">Toolbox</a></li>
       <li><a href="#start">Getting started</a></li>
+      <li><a href="#about">About me</a></li>
     </ul>
   </nav>
   <a class="btn btn-primary" href="https://topmate.io/listeningstoriesuntold/2402469" target="_blank" rel="noopener" data-goatcounter-click="book-nav">Book a vibe check</a>
@@ -364,7 +416,7 @@ footer .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wr
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow rise">Counsellor · Online sessions</span>
+        <span class="eyebrow rise">Counsellor · Melbourne · Online sessions</span>
         <div class="rise d1">
           <h1>Hi, I'm Ashu. Yes, <span class="one">just one name.<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path class="draw" pathLength="1" d="M4 14 C 60 4, 140 2, 296 10" fill="none" stroke="var(--marigold)" stroke-width="6" stroke-linecap="round"/></svg></span></h1>        </div>
         <p class="lede rise d2">Think less "lie on a couch and talk about your childhood" and more <em>"let's figure this out and actually do something about it."</em> This is your safe space, and you'll leave with tools, not just insight.</p>
@@ -377,6 +429,12 @@ footer .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wr
           <span>Weekly or fortnightly</span>
           <span>Students &amp; adults</span>
         </div>
+        <p class="creds-line rise d4">
+          <span><b>Master of Counselling</b>, Monash</span>
+          <span><b>School counsellor</b>, Melbourne</span>
+          <span><b>Online clients</b> since 2022</span>
+          <a href="#about">More about me →</a>
+        </p>
       </div>
 
       <figure class="portrait">
@@ -458,7 +516,7 @@ footer .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wr
         <span class="eyebrow">Who I work with</span>
         <h2>Sound familiar?</h2>
         <p>I split my week between <strong>schools</strong>, where I work with students, and <strong>adults who look like they have it all together</strong>. You know the type. Maybe you are the type.</p>
-        <p>I especially love working with people from <strong>culturally diverse backgrounds</strong>, first- and second-generation immigrants, and anyone caught between two (or more) worlds.</p>
+        <p>I especially love working with people from <strong>culturally diverse backgrounds</strong>, first- and second-generation immigrants, and anyone caught between two (or more) worlds. In schools I've worked with students from Cambodian, Vietnamese, Chinese, South Asian and Pacific Islander families, and I adapt how we work to fit your culture, not the other way round.</p>
         <div class="worlds" aria-hidden="true">
           <svg viewBox="0 0 120 64" fill="none" stroke-width="3">
             <circle cx="42" cy="32" r="26" stroke="var(--ink)"/>
@@ -647,6 +705,47 @@ footer .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wr
     </div>
   </section>
 
+  <!-- ABOUT -->
+  <section id="about" class="band">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <span class="eyebrow">About me</span>
+        <h2>The serious bit: where I trained and where I work.</h2>
+        <p>Fair question to ask before you trust someone with your stuff. I'm based in <strong>Melbourne</strong>. I trained at <strong>Monash University</strong>, I work as a <strong>school counsellor</strong> during the week, and I've been seeing clients online since 2022.</p>
+        <p>Outside of that I volunteer on support lines, because listening to the stories people don't usually get to tell is kind of my whole thing.</p>
+        <div class="creds">
+          <div class="cred"><b>Master of Counselling</b><span>Monash University, 2025</span></div>
+          <div class="cred"><b>Bachelor of Business Administration</b><span>Bennett University, Vice Chancellor's Gold Medal</span></div>
+          <div class="cred"><b>Mental Health First Aid</b><span>Accredited until 2027</span></div>
+          <div class="cred"><b>240-hour counselling training</b><span>Socially Souled, 2022</span></div>
+        </div>
+        <p class="hand about-aside">yes, business degree first. and 18 published poems. ask me.</p>
+      </div>
+      <ol class="timeline">
+        <li>
+          <span class="when">2025 – now</span>
+          <h3>School Counsellor, Melbourne primary school</h3>
+          <p>Set up the school's counselling service from scratch. Individual and group sessions with kids using CBT, DBT-informed, play-based and trauma-informed approaches, plus working with teachers and families on support plans and the move to high school.</p>
+        </li>
+        <li>
+          <span class="when">2022 – now</span>
+          <h3>Counsellor in private practice, online</h3>
+          <p>Telehealth counselling for adults: life transitions, workplace stress, relationships and identity, with a focus on women's mental health. I also run group sessions on emotional regulation and mindfulness.</p>
+        </li>
+        <li>
+          <span class="when">2024</span>
+          <h3>Student Counsellor placement, Melbourne primary school</h3>
+          <p>Worked with students from a wide mix of cultures through play therapy, LEGO®-based therapy and art, especially for kids who couldn't yet put things into words, or into English.</p>
+        </li>
+        <li>
+          <span class="when">2025 – now</span>
+          <h3>Support line volunteer</h3>
+          <p>Peer support calls with people affected by suicide at <strong>Roses in the Ocean</strong>, and crisis support for women facing homelessness, family violence and isolation at <strong>4 Voices</strong>.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- FINAL CTA -->
   <section class="final">
     <div class="wrap final-grid">
@@ -675,6 +774,10 @@ footer .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wr
     </div>
   </section>
 </main>
+
+<aside class="wrap crisis" aria-label="Crisis support">
+  <p><strong>Need help right now?</strong> Counselling isn't an emergency service. In Australia, call <a href="tel:000">000</a> if you're in danger, <a href="tel:131114">Lifeline on 13 11 14</a> any time, or <a href="tel:1800551800">Kids Helpline on 1800 55 1800</a> if you're 5 to 25. Elsewhere, call your local emergency number.</p>
+</aside>
 
 <footer>
   <div class="wrap">
